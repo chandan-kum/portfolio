@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Printer, Copy, Check, FileText, Mail, Phone } from 'lucide-react';
+import { X, Printer, Copy, Check, FileText, Mail, Phone, Globe } from 'lucide-react';
 import { Linkedin } from './Icons';
 import { resumeData } from '../data/resumeData';
 
@@ -18,6 +18,7 @@ CHANDAN KUMAR
 Location: Ghaziabad, India
 Email: ${resumeData.personal.email}
 LinkedIn: ${resumeData.personal.linkedin}
+Portfolio: ${resumeData.personal.portfolio}
 Phone: ${resumeData.personal.phone}
 
 TECHNICAL SKILLS:
@@ -173,7 +174,17 @@ I hereby declare that all the information provided in this resume is true, compl
                 className="flex items-center gap-1 text-cyan-400 hover:underline"
               >
                 <Linkedin className="w-3.5 h-3.5" />
-                linkedin.com/in/chandan-kumar
+                {resumeData.personal.linkedinDisplay || "LinkedIn"}
+              </a>
+              <span>&bull;</span>
+              <a 
+                href={resumeData.personal.portfolio}
+                target="_blank" 
+                rel="noreferrer"
+                className="flex items-center gap-1 text-cyan-400 hover:underline"
+              >
+                <Globe className="w-3.5 h-3.5" />
+                {resumeData.personal.portfolioDisplay}
               </a>
               <span>&bull;</span>
               <span className="flex items-center gap-1">

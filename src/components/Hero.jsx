@@ -8,7 +8,8 @@ import {
   MapPin, 
   CheckCircle2, 
   Play, 
-  Layers 
+  Layers,
+  Globe
 } from 'lucide-react';
 import { Linkedin } from './Icons';
 import { resumeData } from '../data/resumeData';
@@ -107,6 +108,15 @@ export default function Hero({ onOpenResume }) {
               >
                 <Linkedin className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                 <span>LinkedIn</span>
+              </a>
+              <a 
+                href={resumeData.personal.portfolio}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-300 hover:border-cyan-500/40 transition-colors"
+              >
+                <Globe className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                <span>Portfolio</span>
               </a>
             </div>
 

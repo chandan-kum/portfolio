@@ -7,7 +7,8 @@ import {
   Copy, 
   Check, 
   Clock, 
-  ExternalLink
+  ExternalLink,
+  Globe
 } from 'lucide-react';
 import { Linkedin } from './Icons';
 import { resumeData } from '../data/resumeData';
@@ -121,11 +122,39 @@ export default function ContactSection() {
                     rel="noreferrer"
                     className="text-sm font-semibold text-white hover:text-cyan-400 transition-colors flex items-center gap-1"
                   >
-                    linkedin.com/in/chandan-kumar
+                    {resumeData.personal.linkedinDisplay || "LinkedIn"}
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>
               </div>
+            </div>
+
+            {/* Portfolio Card */}
+            <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 transition-all flex items-center justify-between group">
+              <div className="flex items-center gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-colors">
+                  <Globe className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-[11px] font-mono text-slate-500 block">LIVE PORTFOLIO</span>
+                  <a 
+                    href={resumeData.personal.portfolio}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sm font-semibold text-white hover:text-cyan-400 transition-colors flex items-center gap-1 font-mono"
+                  >
+                    {resumeData.personal.portfolioDisplay}
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+              <button
+                onClick={() => handleCopy(resumeData.personal.portfolio, 'portfolio')}
+                className="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition-colors cursor-pointer"
+                title="Copy portfolio URL"
+              >
+                {copiedField === 'portfolio' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+              </button>
             </div>
 
             {/* Location Card */}

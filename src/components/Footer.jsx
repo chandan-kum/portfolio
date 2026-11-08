@@ -1,5 +1,5 @@
 import React from 'react';
-import { Terminal, ArrowUp, ShieldCheck, Mail, Phone } from 'lucide-react';
+import { Terminal, ArrowUp, ShieldCheck, Mail, Phone, Globe } from 'lucide-react';
 import { Linkedin } from './Icons';
 import { resumeData } from '../data/resumeData';
 
@@ -38,6 +38,15 @@ export default function Footer({ onOpenResume }) {
                 title="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
+              </a>
+              <a
+                href={resumeData.personal.portfolio}
+                target="_blank"
+                rel="noreferrer"
+                className="p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-cyan-400 transition-colors border border-slate-800"
+                title="Portfolio"
+              >
+                <Globe className="w-4 h-4" />
               </a>
               <a
                 href={`mailto:${resumeData.personal.email}`}
